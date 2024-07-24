@@ -87,7 +87,7 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  src={`../../assets/logo512.png`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -98,14 +98,14 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Ed Roh
+                  kevin Dodiya
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  VP Fancy Admin
+                  React Admin Dashboard
                 </Typography>
               </Box>
             </Box>
-          )}
+          )}  
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
@@ -138,6 +138,35 @@ const Sidebar = () => {
             >
               Charts
             </Typography>
+            <Item
+              title="Bar Chart"
+              to="/Barchart"
+              icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Pie chart"
+              to="/Piechart"
+              icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Line chart"
+              to="/Linechart"
+              icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Bubble chart"
+              to="/Bubblechart"
+              icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            
            
           </Box>
         </Menu>
