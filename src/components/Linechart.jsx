@@ -5,8 +5,8 @@ import axios from 'axios';
 const Linechart = () => {
   const svgRef = useRef();
   const [data, setData] = useState([]);
-  const [xField, setXField] = useState('region'); // Default x axis field
-  const [yField, setYField] = useState('intensity'); // Default y axis field
+  const [xField, setXField] = useState('region'); 
+  const [yField, setYField] = useState('intensity'); 
   const [availableFields, setAvailableFields] = useState([]);
 
   useEffect(() => {
@@ -31,7 +31,6 @@ const Linechart = () => {
 
         setData(parsedData);
 
-        // Extract available fields
         if (parsedData.length > 0) {
           setAvailableFields(Object.keys(parsedData[0]).filter(key => key !== 'region'));
         }
@@ -68,7 +67,7 @@ const Linechart = () => {
       .attr("width", width)
       .attr("height", height);
 
-    svg.selectAll("*").remove(); // Clear previous chart
+    svg.selectAll("*").remove(); 
 
     svg.append("path")
       .data([data])

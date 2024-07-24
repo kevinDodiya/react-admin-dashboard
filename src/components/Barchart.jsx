@@ -7,16 +7,14 @@ const Barchart = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Fetch data from local API
     axios.get("http://localhost:8000/crud/Data/fetch")
       .then(response => {
-        // Assuming response.data is an array of objects
         const parsedData = response.data
           .map(d => ({
             sector: d.sector,
-            intensity: +d.intensity // Convert to number
+            intensity: +d.intensity
           }))
-          .filter(d => d.sector && !isNaN(d.intensity)); // Filter out blank or invalid values
+          .filter(d => d.sector && !isNaN(d.intensity)); 
         setData(parsedData);
       })
       .catch(error => {
@@ -25,17 +23,13 @@ const Barchart = () => {
   }, []);
 
   useEffect(() => {
-    if (data.length === 0) return; // Exit if data is empty
-
-    // set the dimensions and margins of the graph
+    if (data.length === 0) return; 
     const margin = { top: 30, right: 30, bottom: 70, left: 60 },
       width = 700 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
-    // Clear the previous SVG
     d3.select(ref.current).select("svg").remove();
 
-    // append the svg object to the body of the page
     const svg = d3
       .select(ref.current)
       .append("svg")
@@ -44,7 +38,6 @@ const Barchart = () => {
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // X axis
     const x = d3
       .scaleBand()
       .range([0, width])
@@ -58,13 +51,11 @@ const Barchart = () => {
       .attr("transform", "translate(-10,0)rotate(-45)")
       .style("text-anchor", "end");
 
-    // Add Y axis
     const y = d3.scaleLinear()
-      .domain([0, d3.max(data, (d) => d.intensity)]) // Adjust domain based on the 'intensity' data
+      .domain([0, d3.max(data, (d) => d.intensity)]) 
       .range([height, 0]);
     svg.append("g").call(d3.axisLeft(y));
 
-    // Bars
     svg
       .selectAll("rect")
       .data(data)

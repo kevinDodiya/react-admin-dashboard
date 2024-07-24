@@ -9,10 +9,8 @@ const PieChart = () => {
   const [availableFields, setAvailableFields] = useState([]);
 
   useEffect(() => {
-    // Fetch data from local API
     axios.get("http://localhost:8000/crud/Data/fetch")
       .then(response => {
-        // Assuming response.data is an array of objects
         const parsedData = response.data.map(d => ({
           region: d.region,
           relevance: +d.relevance,
@@ -20,7 +18,6 @@ const PieChart = () => {
           likelihood: +d.likelihood
         })).filter(d => d.region);
 
-        // Extract available fields from the first entry
         if (parsedData.length > 0) {
           setAvailableFields(Object.keys(parsedData[0]).filter(key => key !== 'region'));
         }
@@ -33,12 +30,11 @@ const PieChart = () => {
   }, []);
 
   useEffect(() => {
-    if (data.length === 0) return; // Exit if data is empty
+    if (data.length === 0) return; 
 
-    // Count occurrences of each unique value in the selected field
     const aggregatedData = data.reduce((acc, curr) => {
       const region = curr.region;
-      const value = curr[selectedField]; // Dynamic value based on selected field
+      const value = curr[selectedField]; 
       if (!isNaN(value)) {
         const existingRegion = acc.find(d => d.region === region);
         if (existingRegion) {
@@ -67,8 +63,7 @@ const PieChart = () => {
       .innerRadius(radius - 40)
       .outerRadius(radius - 40);
 
-    d3.select(svgRef.current).selectAll("*").remove(); // Clear previous chart
-
+    d3.select(svgRef.current).selectAll("*").remove(); 
     const svg = d3.select(svgRef.current)
       .attr("width", width)
       .attr("height", height)

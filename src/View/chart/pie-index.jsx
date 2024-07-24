@@ -1,6 +1,6 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import Bubblechart from "../../components/Bubblehart";
+import PieChart from "../../components/piechart";
 
 const Line = () => {
   const theme = useTheme();
@@ -19,10 +19,10 @@ const Line = () => {
           borderRadius="8px"
         >
           <Typography variant="h5" mb="20px">
-            Graph of intensity of sector
+          Pie chart 
           </Typography>
-          <Box height="400px">
-            <Bubblechart isDashboard={true} />
+          <Box height="500px">
+            <PieChart isDashboard={true} />
           </Box>
         </Box>
         

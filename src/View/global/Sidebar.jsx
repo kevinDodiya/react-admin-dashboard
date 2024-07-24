@@ -7,6 +7,10 @@ import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
+import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
+import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlineOutlined';
+import BubbleChartOutlinedIcon from '@mui/icons-material/BubbleChartOutlined';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -141,28 +145,28 @@ const Sidebar = () => {
             <Item
               title="Bar Chart"
               to="/Barchart"
-              icon={<ContactsOutlinedIcon />}
+              icon={<BarChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Pie chart"
               to="/Piechart"
-              icon={<ContactsOutlinedIcon />}
+              icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Line chart"
               to="/Linechart"
-              icon={<ContactsOutlinedIcon />}
+              icon={<InsertChartOutlinedOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Bubble chart"
               to="/Bubblechart"
-              icon={<ContactsOutlinedIcon />}
+              icon={<BubbleChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

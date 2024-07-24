@@ -1,16 +1,16 @@
 import {useState } from 'react';
 import { Routes, Route } from "react-router-dom";
-import Topbar from "./scenes/global/Topbar";
-import Sidebar from "./scenes/global/Sidebar";
-import Dashboard from "./scenes/dashboard";
-import Contacts from "./scenes/contacts";
-import Barchart from "./scenes/chart/Bar-index.jsx"
-import Piechart from "./scenes/chart/pie-index.jsx"
-import Bubblechart from "./scenes/chart/Bubble-index.jsx"
-// import BubbleChart from "./scenes/chart/Bubble-index"
+import Topbar from "./View/global/Topbar";
+import Sidebar from "./View/global/Sidebar";
+import Dashboard from "./View/dashboard";
+import Contacts from "./View/contacts";
+import Barchart from "./View/chart/Bar-index.jsx"
+import Piechart from "./View/chart/pie-index.jsx"
+import Bubblechart from "./View/chart/Bubble-index.jsx"
+// import BubbleChart from "./View/chart/Bubble-index"
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-import LineChart from './scenes/chart/Line-index.jsx';
+import LineChart from './View/chart/Line-index.jsx';
 
 function App() {
   const [theme, colorMode] = useMode();

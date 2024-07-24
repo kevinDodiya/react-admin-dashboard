@@ -1,7 +1,6 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import Barchart from "../../components/Barchart";
-
+import Linechart from "../../components/Linechart";
 
 const Bar = () => {
   const theme = useTheme();
@@ -9,24 +8,15 @@ const Bar = () => {
 
   return (
     <Box m="20px">
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        flexWrap="wrap"
-      >
-        <Box
-          backgroundColor={colors.primary[400]}
-          p="20px"
-          borderRadius="8px"
-        >
+      <Box display="flex" justifyContent="space-between" flexWrap="wrap">
+        <Box backgroundColor={colors.primary[400]} p="20px" borderRadius="8px">
           <Typography variant="h5" mb="20px">
-            Graph of intensity of sector
+            Line Chart
           </Typography>
           <Box height="400px">
-            <Barchart isDashboard={true} />
+            <Linechart isDashboard={true} />
           </Box>
         </Box>
-        
       </Box>
     </Box>
   );
